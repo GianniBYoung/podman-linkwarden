@@ -7,8 +7,11 @@ This assumes that your host UUID is 1000. If it is different make sure to update
 
 ## Set Podman Secrets With Your Creds
 `echo "< database url >" | podman secret create linkwarden_pg_db_url -`
+
 `echo "< database password >" | podman secret create linkwarden_pg_password -`
+
 `echo "< nextauth url >" | podman secret create linkwarden_pg_nextauth_url -`
+
 `echo "< nextauth secret >" | podman secret create linkwarden_pg_nextauth_secret -`
 
 ## Copy Quadlets
