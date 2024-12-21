@@ -4,10 +4,11 @@ Wants=network-online.target
 After=network-online.target
 
 [Pod]
-PodName=linkwardenpod
+PodName=linkwarden
 PublishPort=3000:3000
-Volume=<host path to postgres data>:/var/lib/postgresql/data:Z
-Volume=<host path to linkwarden data>:/data/data:Z
+# UPDATE THESE
+#Volume=<host path to postgres data>:/var/lib/postgresql/data:Z
+#Volume=<host path to linkwarden data>:/data/data:Z
 
 [Install]
 WantedBy=default.target
