@@ -22,19 +22,19 @@ echo 'http://localhost:3000/api/v1/auth' | podman secret create linkwarden_pg_ne
 echo '<yourpassword>' | podman secret create linkwarden_pg_password -
 ```
 
-## 2. Update the persistent storage paths in `linkwarden.pod`
+## 2. Update the Persistent Storage Paths in `linkwarden.pod`
 Make sure these paths exist! Podman *will not* create these for you
 
 ## 3. Copy Quadlets
 `mkdir -p $XDG_CONFIG_HOME/containers/systemd`
 
-Copy both `.container` files and the `.pod` file to `$XDG_CONFIG_HOME/containers/systemd`
+- Copy both `.container` files and the `.pod` file to `$XDG_CONFIG_HOME/containers/systemd`
+  - `cp *container *pod $XDG_CONFIG_HOME/containers/systemd`
 
-`cp *container *pod $XDG_CONFIG_HOME/containers/systemd`
+- Make systemd aware of the new files
+  - `systemctl --user daemon-reload`
 
-Make systemd aware of the new files `systemctl --user daemon-reload`
-
-## 4. Start the service
+## 4. Start the Service
 
 `systemctl --user start linkwarden`
 
@@ -48,5 +48,5 @@ Make systemd aware of the new files `systemctl --user daemon-reload`
 # Contributing
 - File issues
 - Ask questions
-- submit PRs
+- Submit PRs
 - Suggest features
