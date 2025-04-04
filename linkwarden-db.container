@@ -6,6 +6,8 @@ ContainerName=linkwarden-db
 Image=docker.io/library/postgres:16-alpine
 Pod=linkwarden.pod
 Pull=always
+DropCapability=all
+AddCapability=CAP_DAC_OVERRIDE CAP_CHOWN CAP_SETUID CAP_SETGID CAP_FOWNER
 
 [Service]
 Restart=always
