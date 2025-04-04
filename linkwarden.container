@@ -8,6 +8,7 @@ ContainerName=LinkWarden
 Image=ghcr.io/linkwarden/linkwarden:latest
 Pod=linkwarden.pod
 Pull=always
+AutoUpdate=registry
 Secret=linkwarden_pg_db_url,type=env,target=DATABASE_URL
 Secret=linkwarden_pg_password,type=env,target=POSTGRES_PASSWORD
 Secret=linkwarden_pg_nextauth_url,type=env,target=NEXTAUTH_URL
