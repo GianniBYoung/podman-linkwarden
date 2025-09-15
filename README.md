@@ -1,4 +1,4 @@
-Quadlets for creating a simple Linkwarden pod intended to be ran as an unprivileged podman user.
+Quadlets for creating a simple and hardened Linkwarden pod intended to be ran as an unprivileged podman user with optional ai tagging component.
 
 This configuration will restart on failure, start at boot, and automatically pull the latest image on restart
 
@@ -37,6 +37,15 @@ Make sure these paths exist! Podman *will not* create these for you
 ## 4. Start the Service
 
 `systemctl --user start linkwarden`
+
+## 5. OPTIONAL: Start the AI Tagging Service
+
+- Start up the pod, configure ollama and the model you want to use
+  - `systemctl --user start linkwarden-pod`
+- Refer to the ollama documentation for configuration details
+  - https://ollama.com/docs/getting-started/installation
+- Refer to the Linkwarden documentation for enabling AI tagging
+  - https://docs.linkwarden.app/self-hosting/ai-worker
 
 # Other Controls
 `systemctl --user stop linkwarden-pod` will stop all containers

@@ -1,0 +1,20 @@
+[Unit]
+Description=optional linkwarden ai worker
+Requires=linkwarden-db.container
+Requires=linkwarden.container
+After=linkwarden-db.container
+After=linkwarden.container
+
+[Container]
+ContainerName=LinkWarden-llama
+Image=docker.io/ollama/ollama
+Pod=linkwarden.pod
+AutoUpdate=registry
+Pull=always
+Volume=ollama-data:/root/.ollama:Z
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target

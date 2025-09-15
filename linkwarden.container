@@ -11,11 +11,12 @@ Pull=always
 AutoUpdate=registry
 DropCapability=all
 UserNS=auto
+
+Environment=OLLAMA_MODEL=phi4:latest
 Secret=linkwarden_pg_db_url,type=env,target=DATABASE_URL
 Secret=linkwarden_pg_password,type=env,target=POSTGRES_PASSWORD
 Secret=linkwarden_pg_nextauth_url,type=env,target=NEXTAUTH_URL
 Secret=linkwarden_pg_nextauth_secret,type=env,target=NEXTAUTH_SECRET
-DropCapability=all
 
 [Service]
 Restart=always
