@@ -1,0 +1,7 @@
+[Build]
+# Other options
+File=linkwarden-wolfi.ContainerFile
+ImageTag=localhost/autoremobrr
+Pull=always
+SetWorkingDirectory=unit
+
