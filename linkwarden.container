@@ -4,22 +4,28 @@ Requires=linkwarden-db.container
 After=linkwarden-db.container
 
 [Container]
+# Base options
+AutoUpdate=registry
 ContainerName=LinkWarden
 Image=ghcr.io/linkwarden/linkwarden:latest
 Pod=linkwarden.pod
 Pull=always
-AutoUpdate=registry
-DropCapability=all
-UserNS=auto
 
+# Environment options
 Environment=OLLAMA_MODEL=phi4:latest
+
+# Secret options
 Secret=linkwarden_pg_db_url,type=env,target=DATABASE_URL
-Secret=linkwarden_pg_password,type=env,target=POSTGRES_PASSWORD
-Secret=linkwarden_pg_nextauth_url,type=env,target=NEXTAUTH_URL
 Secret=linkwarden_pg_nextauth_secret,type=env,target=NEXTAUTH_SECRET
+Secret=linkwarden_pg_nextauth_url,type=env,target=NEXTAUTH_URL
+Secret=linkwarden_pg_password,type=env,target=POSTGRES_PASSWORD
+
+# Other options
+DropCapability=all
 
 [Service]
 Restart=always
 
 [Install]
 WantedBy=default.target
+
